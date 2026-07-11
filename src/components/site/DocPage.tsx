@@ -50,10 +50,10 @@ export function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24">
-      <h2 className="text-xl font-semibold tracking-tight text-slate-900">
+      <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
         {title}
       </h2>
-      <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-slate-600">
+      <div className="mt-4 space-y-4 text-lg leading-relaxed text-slate-600">
         {children}
       </div>
     </section>

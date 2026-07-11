@@ -26,13 +26,10 @@ export default function SupportPage() {
   return (
     <DocPage
       title="Support"
-      intro="Need a hand with SnipCode? Start here. Most questions are answered below, and you can always reach a human."
+      intro="Need a hand with SnipCode? Start here. Most answers are below, and you can always reach a human."
     >
-      <Section id="getting-started" title="Getting started">
-        <p>
-          There is no account and no setup. From install to your first snip is
-          about four steps.
-        </p>
+      <Section id="getting-started" title="Getting Started">
+        <p>No account, no setup. From install to your first snip takes four steps.</p>
         <ol className="list-decimal space-y-2 pl-5 marker:text-slate-400">
           <li>
             Install SnipCode from the{" "}
@@ -46,19 +43,13 @@ export default function SupportPage() {
             </a>
             .
           </li>
-          <li>
-            Pin the extension, then open it from the toolbar to launch the side
-            panel.
-          </li>
-          <li>Click Capture, then hover and click any element on the page.</li>
-          <li>
-            Copy the generated code, or switch formats between HTML, React,
-            Tailwind, and Vue.
-          </li>
+          <li>Pin it, then click the toolbar icon to open the side panel.</li>
+          <li>Click Capture, then hover and click any element.</li>
+          <li>Copy the code, or switch between HTML, React, Tailwind, and Vue.</li>
         </ol>
       </Section>
 
-      <Section id="faq" title="Frequently asked questions">
+      <Section id="faq" title="Frequently Asked Questions">
         <div className="space-y-6">
           <Faq q="Do I need an account?">
             No. Install it and start snipping. There is no sign in.
@@ -67,41 +58,40 @@ export default function SupportPage() {
             Yes. SnipCode is free and open source under the MIT license.
           </Faq>
           <Faq q="Does my data leave my browser?">
-            No, not unless you choose to. Core snipping runs entirely on your
-            device. Data leaves only when you turn on the optional AI or webhook
-            features. The{" "}
+            Not unless you choose to. Core snipping runs entirely on your device.
+            Data leaves only when you turn on the optional AI or webhook features.
+            The{" "}
             <a href="/privacy" className={link}>
               Privacy Policy
             </a>{" "}
-            walks through exactly what happens and when.
+            covers exactly what happens and when.
           </Faq>
           <Faq q="Do I need an API key?">
-            No. Every core feature, from snipping elements into code to
-            extracting colors, fonts, and assets, works offline with no key. A
-            key is needed only for the optional AI pass that refines the output.
+            No. Every core feature works offline with no key, from snipping elements
+            into code to extracting colors, fonts, and assets. A key is needed only
+            for the optional AI polish that refines the output.
           </Faq>
           <Faq q="Which AI providers can I use?">
             OpenRouter, Anthropic, OpenAI, and Google. You add your own key in
-            Settings, and it is stored locally on your device.
+            Settings, and it stays local to your device.
           </Faq>
           <Faq q="Why does SnipCode ask for the debugger permission?">
-            It uses that access to read exact, computed styles for the element
-            you snip, which makes the generated code far more accurate. It
-            attaches only to the tab you are snipping, only for that moment, and
-            never records keystrokes or network activity. Chrome shows a banner
-            whenever it is in use. There is more detail in the{" "}
+            To read exact, computed styles for the element you snip, which makes the
+            code far more accurate. It attaches only to the tab you are snipping,
+            only for that moment, and never records keystrokes or network activity.
+            Chrome shows a banner whenever it is in use. More detail is in the{" "}
             <a href="/privacy" className={link}>
               Privacy Policy
             </a>
             .
           </Faq>
           <Faq q="How many snippets does it keep?">
-            Your 50 most recent, stored locally. Older ones roll off
-            automatically, and you can clear them anytime from History.
+            Your 50 most recent, stored locally. Older ones roll off automatically,
+            and you can clear them anytime from History.
           </Faq>
           <Faq q="Which browsers are supported?">
-            Chrome 122 and later, and Chromium based browsers such as Edge,
-            Brave, and Arc.
+            Chrome 122 and later, and Chromium-based browsers such as Edge, Brave,
+            and Arc.
           </Faq>
         </div>
       </Section>
@@ -109,28 +99,28 @@ export default function SupportPage() {
       <Section id="troubleshooting" title="Troubleshooting">
         <div className="space-y-6">
           <Faq q="The extension will not open on a page.">
-            Some pages are off limits to every extension, including the Chrome
-            Web Store, the new tab page, and internal chrome pages. Try SnipCode
-            on a normal website instead.
+            Some pages are off limits to every extension, including the Chrome Web
+            Store, the new tab page, and internal Chrome pages. Try a normal website
+            instead.
           </Faq>
           <Faq q="Snipping does nothing, or the output looks off.">
-            Reload the page and try again. If you have DevTools open, close it,
-            since it can conflict with the styling read. Make sure you are on
-            Chrome 122 or later.
+            Reload the page and try again. If you have DevTools open, close it, since
+            it can conflict with the styling read. Make sure you are on Chrome 122 or
+            later.
           </Faq>
           <Faq q="The AI polish did not run.">
-            Confirm you added a valid key in Settings and picked a provider. Use
-            the Test key button to check it. If a request fails, SnipCode quietly
-            falls back to its normal output.
+            Confirm you added a valid key in Settings and picked a provider. Use the
+            Test key button to check it. If a request fails, SnipCode quietly falls
+            back to its normal output.
           </Faq>
           <Faq q="My snippet did not save.">
-            History keeps the 50 most recent snips. If you are at the limit, the
-            oldest one is removed to make room for the new one.
+            History keeps the 50 most recent snips. At the limit, the oldest is
+            removed to make room.
           </Faq>
         </div>
       </Section>
 
-      <Section id="feedback" title="Report a bug or request a feature">
+      <Section id="feedback" title="Report A Bug Or Request A Feature">
         <p>
           Found something broken, or have an idea? Open an issue on{" "}
           <a
@@ -148,12 +138,11 @@ export default function SupportPage() {
 
       <Section id="contact" title="Contact">
         <p>
-          You can reach us directly at{" "}
+          Reach us directly at{" "}
           <a href="mailto:tidballmicah@gmail.com" className={link}>
             tidballmicah@gmail.com
           </a>
-          . We read every message and aim to reply within a couple of business
-          days.
+          . We read every message and aim to reply within a couple of business days.
         </p>
       </Section>
     </DocPage>
