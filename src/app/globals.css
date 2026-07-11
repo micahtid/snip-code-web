@@ -1,26 +1,129 @@
 @import "tailwindcss";
 
+/*
+ * SnipCode marketing site design system.
+ * Google Sans as the default UI font, Gupter as the serif accent/display font,
+ * JetBrains Mono for code. Sharp, edge-to-edge, shadowless surfaces.
+ */
+
+@theme {
+  /* Figtree is the main UI font. */
+  --font-sans: var(--font-figtree), system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  /* Times New Roman (italic) is the serif accent, used for a few words in a title. */
+  --font-accent: "Times New Roman", Times, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --color-accent: #0ea5e9;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  border-color: rgba(226, 232, 240, 0.8);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Hero backdrop: very subtle blue→white gradient ---- */
+.hero-bg {
+  background: linear-gradient(
+    180deg,
+    #e8f0fa 0%,
+    #f3f8fd 42%,
+    #ffffff 100%
+  );
+}
+
+/* ---- Spaced dot lattice, fading out toward the bottom ---- */
+.dot-lattice {
+  background-image: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.22) 1.4px,
+    transparent 1.5px
+  );
+  background-size: 38px 38px;
+  background-position: center top;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 82%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 82%
+  );
+}
+
+/* ---- Sharp, shadowless buttons ---- */
+.btn-primary {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  transition: background 150ms ease;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+.btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+/* Frosted glass surface, kept for the odd translucent panel. */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+/* Black video placeholder: a real <video> will replace the fill later. */
+.video-placeholder {
+  background: #0b0f17;
+  position: relative;
+}
+
+/* Very subtle dark offset so white hero text stays legible over the light blue. */
+.hero-text-shadow {
+  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.18);
+}
+
+/* ---- Reveal-on-scroll (visible without JS) ---- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
 }
