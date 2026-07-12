@@ -23,12 +23,12 @@ export function DocPage({
       <Nav />
       <main className="mx-auto w-full max-w-3xl px-5 py-20 sm:py-24">
         <header>
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-900">
             {title}
           </h1>
-          <p className="mt-4 text-lg leading-relaxed text-slate-600">{intro}</p>
+          <p className="mt-3 text-base leading-relaxed text-slate-600">{intro}</p>
           {updated && (
-            <p className="mt-4 text-sm text-slate-400">Last updated {updated}</p>
+            <p className="mt-3 text-[13px] text-slate-400">Last updated {updated}</p>
           )}
         </header>
         <div className="mt-14 space-y-12">{children}</div>
@@ -50,10 +50,10 @@ export function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24">
-      <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+      <h2 className="text-xl font-semibold tracking-tight text-slate-900">
         {title}
       </h2>
-      <div className="mt-4 space-y-4 text-lg leading-relaxed text-slate-600">
+      <div className="mt-3 space-y-4 text-base leading-relaxed text-slate-600">
         {children}
       </div>
     </section>

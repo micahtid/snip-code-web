@@ -15,7 +15,7 @@ const link = "font-medium text-sky-600 hover:underline";
 /** A shared list style for the bulleted points used throughout the policy. */
 function Bullets({ children }: { children: ReactNode }) {
   return (
-    <ul className="list-disc space-y-2 pl-5 marker:text-slate-300">
+    <ul className="list-none space-y-2 pl-5 [&>li]:relative [&>li]:before:absolute [&>li]:before:-left-5 [&>li]:before:text-slate-400 [&>li]:before:content-['–']">
       {children}
     </ul>
   );
@@ -26,7 +26,7 @@ const PROVIDERS: Array<{ name: string; href: string }> = [
   { name: "OpenRouter", href: "https://openrouter.ai/privacy" },
   { name: "Anthropic", href: "https://www.anthropic.com/legal/privacy" },
   { name: "OpenAI", href: "https://openai.com/policies/privacy-policy" },
-  { name: "Google (Gemini API)", href: "https://policies.google.com/privacy" },
+  { name: "Google", href: "https://policies.google.com/privacy" },
 ];
 
 export default function PrivacyPage() {
@@ -34,8 +34,16 @@ export default function PrivacyPage() {
     <DocPage
       title="Privacy Policy"
       intro="SnipCode runs entirely in your browser. It has no servers, no accounts, and no analytics. We never see, collect, or store what you do with it."
-      updated="July 10, 2026"
+      updated="July 11, 2026"
     >
+      <Section id="who" title="Who We Are">
+        <p>
+          SnipCode is an open source project maintained by Micah Tidball. In this
+          policy, &quot;we&quot; and &quot;us&quot; mean the maintainer, and you
+          can reach us using the Contact details below.
+        </p>
+      </Section>
+
       <Section id="what" title="What SnipCode Does">
         <p>
           SnipCode is a Chrome extension that turns any element on a web page into
@@ -92,9 +100,9 @@ export default function PrivacyPage() {
             from the extension to the service you chose, signed with your key.
             SnipCode does not proxy or copy this traffic, because there is no server
             of ours in the middle. Supported services are OpenRouter, Anthropic,
-            OpenAI, and Google, and each handles your data under its own privacy
-            policy, linked below. Without a key, this never runs and SnipCode works
-            fully offline.
+            OpenAI, and Google, and each handles your data under its own policy,
+            linked below. Without a key, this never runs and SnipCode works fully
+            offline.
           </li>
           <li>
             <span className="font-medium text-slate-900">
@@ -104,83 +112,18 @@ export default function PrivacyPage() {
             your snipped result as JSON to that address, and nowhere else.
           </li>
           <li>
-            <span className="font-medium text-slate-900">Downloads.</span> When you
-            download an asset such as an image, icon, or SVG, your browser saves it
-            to your device. If the asset is remote, your browser fetches it from its
-            source, like any normal download.
+            <span className="font-medium text-slate-900">Downloads.</span>{" "}
+            When you download an asset such as an image, icon, or SVG, your browser
+            saves it to your device. If the asset is remote, your browser fetches it
+            from its source, like any normal download.
           </li>
         </Bullets>
-      </Section>
-
-      <Section id="not-collected" title="What We Do Not Collect">
-        <Bullets>
-          <li>No analytics, tracking pixels, or telemetry of any kind.</li>
-          <li>
-            No browsing history. SnipCode does not watch the pages you visit. It
-            reads an element only when you choose to snip it.
-          </li>
-          <li>
-            No accounts, names, emails, or passwords. SnipCode has no sign in.
-          </li>
-          <li>No advertising data, and no selling or sharing with data brokers.</li>
-        </Bullets>
-      </Section>
-
-      <Section id="permissions" title="Permissions, And Why Each One Is Needed">
-        <p>
-          Chrome asks you to approve a few permissions when you install SnipCode.
-          Here is what each is for.
-        </p>
-        <Bullets>
-          <li>
-            <span className="font-medium text-slate-900">
-              Access to the site you are on.
-            </span>{" "}
-            So SnipCode can read the element you snip on the current page.
-          </li>
-          <li>
-            <span className="font-medium text-slate-900">Scripting.</span> So
-            SnipCode can run its capture logic on the current page.
-          </li>
-          <li>
-            <span className="font-medium text-slate-900">Storage.</span> So your
-            settings, keys, and saved snippets can be kept locally, with room for
-            larger snippets.
-          </li>
-          <li>
-            <span className="font-medium text-slate-900">Downloads.</span> So you
-            can save assets to your device.
-          </li>
-          <li>
-            <span className="font-medium text-slate-900">Side panel.</span> So
-            SnipCode can open in the browser&apos;s side panel.
-          </li>
-          <li>
-            <span className="font-medium text-slate-900">Debugger.</span> So
-            SnipCode can read exact, computed styles for the element you snip, which
-            makes the code far more accurate. It attaches only to the tab you are
-            snipping, only for that moment, then detaches. It does not record
-            keystrokes, monitor your network, or watch other tabs. Chrome shows its
-            own banner whenever any extension uses this permission.
-          </li>
-        </Bullets>
-      </Section>
-
-      <Section id="retention" title="Keeping And Deleting Your Data">
-        <p>
-          Because everything is stored locally, you are always in control. Saved
-          snippets are limited to the 50 most recent and roll off automatically.
-          You can clear your history anytime from History, and remove your keys and
-          reset your settings in Settings. Uninstalling SnipCode removes all of its
-          local data from your device.
-        </p>
       </Section>
 
       <Section id="third-parties" title="Third-Party Services">
         <p>
-          SnipCode contacts an outside service only when you turn on one of the
-          optional features above. With AI polish, the service you chose receives
-          what you send and handles it under its own policy:
+          If you use AI polish, these are the providers that may receive your data,
+          each with its own privacy policy:
         </p>
         <Bullets>
           {PROVIDERS.map((p) => (
@@ -198,15 +141,100 @@ export default function PrivacyPage() {
           ))}
         </Bullets>
         <p>
-          With webhook delivery, the endpoint you configure receives your data. You
-          control that endpoint.
+          A webhook, if you set one up, points to your own endpoint, not a service
+          we choose.
+        </p>
+      </Section>
+
+      <Section id="not-collected" title="What We Do Not Collect">
+        <Bullets>
+          <li>No analytics, tracking pixels, or telemetry of any kind.</li>
+          <li>
+            No browsing history. SnipCode does not watch the pages you visit. It
+            reads an element only when you choose to snip it.
+          </li>
+          <li>
+            No accounts, names, emails, or passwords. SnipCode has no sign in.
+          </li>
+          <li>No advertising data, and no selling or sharing with data brokers.</li>
+        </Bullets>
+      </Section>
+
+      <Section id="permissions" title="Permissions And Why Each One Is Needed">
+        <p>
+          Chrome asks you to approve a few permissions when you install SnipCode.
+          Here is what each is for.
+        </p>
+        <Bullets>
+          <li>
+            <span className="font-medium text-slate-900">Site access.</span>{" "}
+            SnipCode reads the element you snip on the current page.
+          </li>
+          <li>
+            <span className="font-medium text-slate-900">Scripting.</span>{" "}
+            SnipCode runs its capture logic on the current page.
+          </li>
+          <li>
+            <span className="font-medium text-slate-900">Storage.</span>{" "}
+            Your settings, keys, and saved snippets are kept locally, with room for
+            larger snippets.
+          </li>
+          <li>
+            <span className="font-medium text-slate-900">Downloads.</span>{" "}
+            You can save assets to your device.
+          </li>
+          <li>
+            <span className="font-medium text-slate-900">Side panel.</span>{" "}
+            SnipCode opens in the browser&apos;s side panel.
+          </li>
+          <li>
+            <span className="font-medium text-slate-900">Debugger.</span>{" "}
+            SnipCode reads exact, computed styles for the element you snip, which
+            makes the code far more accurate. It attaches only to the tab you are
+            snipping, only for that moment, then detaches. It does not record
+            keystrokes, monitor your network, or watch other tabs. Chrome shows its
+            own banner whenever any extension uses this permission.
+          </li>
+        </Bullets>
+      </Section>
+
+      <Section id="retention" title="Keeping And Deleting Your Data">
+        <p>
+          Because everything is stored locally, you are always in control. You can
+          clear your history anytime from History, and remove your keys and reset
+          your settings in Settings. Uninstalling SnipCode removes all of its local
+          data from your device.
+        </p>
+      </Section>
+
+      <Section id="security" title="Security">
+        <p>
+          SnipCode&apos;s strongest protection is that your data lives on your
+          device instead of on servers that could be breached. It is guarded by
+          your device and browser, so keeping them up to date is the best
+          safeguard.
         </p>
       </Section>
 
       <Section id="children" title="Children">
         <p>
-          SnipCode is a developer tool and is not directed at children under 13. We
-          do not knowingly collect data from children.
+          SnipCode is a developer tool and is not directed at children under 13,
+          or the minimum age in your region. We do not knowingly collect data from
+          children.
+        </p>
+      </Section>
+
+      <Section id="rights" title="Your Rights">
+        <p>
+          SnipCode keeps no personal data and no server-side profile of you, so
+          there is nothing for us to look up, export, or delete. You already hold
+          everything yourself and can clear it anytime from within the extension,
+          as described in Keeping And Deleting Your Data.
+        </p>
+        <p>
+          The same applies under laws like the GDPR and CCPA. With no personal data
+          on our side, there is nothing to request or object to. If you have a
+          question, email us and we will help.
         </p>
       </Section>
 
