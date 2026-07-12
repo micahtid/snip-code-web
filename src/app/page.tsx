@@ -2,7 +2,6 @@ import { Nav } from "@/components/site/Nav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { LiveTimer } from "@/components/site/LiveTimer";
 import { GradientSpotlight } from "@/components/site/GradientSpotlight";
-import { DemoWindow } from "@/components/site/DemoWindow";
 import { VideoPlaceholder } from "@/components/site/VideoPlaceholder";
 import { STORE_URL, GITHUB_URL, SITE_URL } from "@/components/site/links";
 import { FaHtml5, FaReact, FaVuejs, FaCss3Alt } from "react-icons/fa";
@@ -58,6 +57,8 @@ const FEATURES = [
       </>
     ),
     body: "Colors, fonts, spacing, and components, all captured as clean JSON. Hand it to an AI and it can build new pages in the exact same style.",
+    video: "/feature-schema.mp4",
+    aspect: "1212 / 720",
   },
   {
     key: "assets",
@@ -67,6 +68,8 @@ const FEATURES = [
       </>
     ),
     body: "Every image, icon, background, and logo, collected in one place. Download any of them in a single click.",
+    video: "/feature-assets.mp4",
+    aspect: "1202 / 714",
   },
   {
     key: "colors",
@@ -76,6 +79,8 @@ const FEATURES = [
       </>
     ),
     body: "Every color, ranked by how often it appears. Copy any of them in a single click.",
+    video: "/feature-colors.mp4",
+    aspect: "1212 / 720",
   },
 ];
 
@@ -92,24 +97,28 @@ function Accent({ children }: { children: ReactNode }) {
 function FeatureRow({
   title,
   body,
+  video,
+  aspect,
   flip = false,
 }: {
   title: ReactNode;
   body: string;
+  video: string;
+  aspect: string;
   flip?: boolean;
 }) {
   return (
     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-      <div className={flip ? "lg:order-2" : ""}>
+      <div className={`text-center lg:text-left ${flip ? "lg:order-2" : ""}`}>
         <h3 className="text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl">
           {title}
         </h3>
-        <p className="mt-5 max-w-md text-lg leading-relaxed text-slate-600">
+        <p className="mx-auto mt-5 max-w-md text-lg leading-relaxed text-slate-600 lg:mx-0">
           {body}
         </p>
       </div>
       <div className={flip ? "lg:order-1" : ""}>
-        <VideoPlaceholder label="Demo coming soon" />
+        <VideoPlaceholder src={video} aspect={aspect} />
       </div>
     </div>
   );
@@ -171,9 +180,9 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Demo window: bigger, directly below the CTA buttons */}
-          <div className="mt-16">
-            <DemoWindow />
+          {/* Hero demo video: same framed style as the feature videos below */}
+          <div className="mx-auto mt-16 w-full max-w-4xl">
+            <VideoPlaceholder src="/hero-demo.mp4" aspect="1202 / 714" />
           </div>
 
           {/* Frameworks: below the video, monochrome, no labels */}
@@ -214,7 +223,7 @@ export default function Home() {
 
         <div className="mt-24 space-y-24 sm:space-y-28">
           {FEATURES.map((f, i) => (
-            <FeatureRow key={f.key} title={f.title} body={f.body} flip={i % 2 === 1} />
+            <FeatureRow key={f.key} title={f.title} body={f.body} video={f.video} aspect={f.aspect} flip={i % 2 === 1} />
           ))}
         </div>
       </section>

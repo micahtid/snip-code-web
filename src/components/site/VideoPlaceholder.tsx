@@ -16,13 +16,15 @@ export function VideoPlaceholder({
 }) {
   return (
     <div
-      className={`video-placeholder w-full overflow-hidden border border-slate-800 ${className}`}
+      className={`video-placeholder w-full overflow-hidden border border-black ${className}`}
       style={{ aspectRatio: aspect }}
     >
       {src ? (
         <video
           className="h-full w-full object-cover"
           src={src}
+          poster={src.replace(/\.mp4$/, ".jpg")}
+          preload="auto"
           autoPlay
           muted
           loop

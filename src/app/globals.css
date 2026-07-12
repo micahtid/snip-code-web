@@ -22,8 +22,12 @@
   --foreground: #0f172a;
 }
 
-* {
-  border-color: rgba(226, 232, 240, 0.8);
+/* Default border color for bare `border-*`/`divide-*` utilities.
+   Kept in @layer base so explicit color utilities (e.g. border-black) still win. */
+@layer base {
+  * {
+    border-color: rgba(226, 232, 240, 0.8);
+  }
 }
 
 html {
@@ -102,7 +106,7 @@ body {
 
 /* Black video placeholder: a real <video> will replace the fill later. */
 .video-placeholder {
-  background: #0b0f17;
+  background: #f1f5f9;
   position: relative;
 }
 

@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: TITLE,
+  title: "SnipCode",
   description: DESCRIPTION,
   applicationName: "SnipCode",
   category: "DeveloperTools",
