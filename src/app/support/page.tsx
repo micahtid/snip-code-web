@@ -139,8 +139,8 @@ export default function SupportPage() {
       <Section id="contact" title="Contact">
         <p>
           Reach us directly at{" "}
-          <a href="mailto:tidballmicah@gmail.com" className={link}>
-            tidballmicah@gmail.com
+          <a href="mailto:micahtid@gmail.com" className={link}>
+            micahtid@gmail.com
           </a>
           . We read every message and aim to reply within a couple of business days.
         </p>

@@ -23,7 +23,7 @@ export function SiteFooter() {
           >
             GitHub
           </a>
-          <a href="mailto:tidballmicah@gmail.com" className="hover:underline">
+          <a href="mailto:micahtid@gmail.com" className="hover:underline">
             Contact
           </a>
         </nav>

@@ -271,8 +271,8 @@ export default function PrivacyPage() {
       <Section id="contact" title="Contact">
         <p>
           Questions about privacy, or anything else? Email us at{" "}
-          <a href="mailto:tidballmicah@gmail.com" className={link}>
-            tidballmicah@gmail.com
+          <a href="mailto:micahtid@gmail.com" className={link}>
+            micahtid@gmail.com
           </a>
           , or open an issue on{" "}
           <a
