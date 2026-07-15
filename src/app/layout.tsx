@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Figtree, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL } from "@/components/site/links";
 import "./globals.css";
 
@@ -84,6 +86,8 @@ export default function RootLayout({
         className="min-h-full flex flex-col overflow-x-hidden bg-white text-slate-900"
       >
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
