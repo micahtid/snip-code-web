@@ -53,7 +53,7 @@ const FEATURES = [
     key: "schema",
     title: (
       <>
-        Export the page&apos;s <Accent>design system</Accent>
+        Export the Page&apos;s <Accent>Design System</Accent>
       </>
     ),
     body: "Colors, fonts, spacing, and components, all captured as clean JSON. Hand it to an AI and it can build new pages in the exact same style.",
@@ -64,7 +64,7 @@ const FEATURES = [
     key: "assets",
     title: (
       <>
-        Grab the page&apos;s <Accent>assets</Accent>
+        Grab the Page&apos;s <Accent>Assets</Accent>
       </>
     ),
     body: "Every image, icon, background, and logo, collected in one place. Download any of them in a single click.",
@@ -75,7 +75,7 @@ const FEATURES = [
     key: "colors",
     title: (
       <>
-        Pull the page&apos;s <Accent>color palette</Accent>
+        Pull the Page&apos;s <Accent>Color Palette</Accent>
       </>
     ),
     body: "Every color, ranked by how often it appears. Copy any of them in a single click.",
