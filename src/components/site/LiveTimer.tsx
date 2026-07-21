@@ -3,19 +3,12 @@
 import { useEffect, useState } from "react";
 
 /**
- * A live "Live for" counter shown at the top of the hero. The extension launched
- * at 8:30 PM; this ticks up from that moment every second, formatted dd:hh:mm:ss.
- * Anchored to 8:30 PM today, or yesterday if it's currently earlier, so elapsed
- * time is always positive.
+ * A live "Live for" counter shown at the top of the hero. Anchored to a single
+ * fixed launch moment — midnight Pacific (PDT) on 2026-07-21 — and ticks up from
+ * there every second, formatted dd:hh:mm:ss. Before launch it stays at zero.
+ * Same absolute instant for every visitor, regardless of their timezone.
  */
-function launchTimestamp(now: Date): number {
-  const launch = new Date(now);
-  launch.setHours(20, 30, 0, 0); // 8:30 PM
-  if (launch.getTime() > now.getTime()) {
-    launch.setDate(launch.getDate() - 1);
-  }
-  return launch.getTime();
-}
+const LAUNCH_MS = Date.UTC(2026, 6, 21, 7, 0, 0); // 2026-07-21 00:00 PDT = 07:00 UTC
 
 function format(elapsedMs: number): string {
   const diff = Math.max(0, elapsedMs);
@@ -32,8 +25,7 @@ export function LiveTimer() {
 
   useEffect(() => {
     const tick = () => {
-      const now = new Date();
-      setElapsed(format(now.getTime() - launchTimestamp(now)));
+      setElapsed(format(Date.now() - LAUNCH_MS));
     };
     tick();
     const id = setInterval(tick, 1000);
